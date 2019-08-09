@@ -1,5 +1,6 @@
 require('dotenv').config();
 const path = require('path');
+const server = require('./server.js');
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(path.join(__dirname, 'client/build')))
@@ -8,8 +9,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })
 }
-
-const server = require('./server.js');
 
 const port = process.env.PORT || 8000;
 
